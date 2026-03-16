@@ -1,0 +1,65 @@
+Traceback (most recent call last):
+  File "C:\Users\golin\OneDrive\Documents\MedAI Major Project\.venv\Lib\site-packages\huggingface_hub\utils\_http.py", line 761, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\golin\OneDrive\Documents\MedAI Major Project\.venv\Lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://huggingface.co/api/models/Nth1nGoli/medai-models/preupload/main'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 13, in <module>
+    result = api.upload_file(path_or_fileobj=fpath, path_in_repo='class_names.json', repo_id=REPO_ID, repo_type='model')
+  File "C:\Users\golin\OneDrive\Documents\MedAI Major Project\.venv\Lib\site-packages\huggingface_hub\utils\_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+  File "C:\Users\golin\OneDrive\Documents\MedAI Major Project\.venv\Lib\site-packages\huggingface_hub\hf_api.py", line 1817, in _inner
+    return fn(self, *args, **kwargs)
+  File "C:\Users\golin\OneDrive\Documents\MedAI Major Project\.venv\Lib\site-packages\huggingface_hub\hf_api.py", line 4918, in upload_file
+    return self.create_commit(
+           ~~~~~~~~~~~~~~~~~~^
+        repo_id=repo_id,
+        ^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        parent_commit=parent_commit,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\golin\OneDrive\Documents\MedAI Major Project\.venv\Lib\site-packages\huggingface_hub\utils\_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+  File "C:\Users\golin\OneDrive\Documents\MedAI Major Project\.venv\Lib\site-packages\huggingface_hub\hf_api.py", line 1817, in _inner
+    return fn(self, *args, **kwargs)
+  File "C:\Users\golin\OneDrive\Documents\MedAI Major Project\.venv\Lib\site-packages\huggingface_hub\hf_api.py", line 4473, in create_commit
+    self.preupload_lfs_files(
+    ~~~~~~~~~~~~~~~~~~~~~~~~^
+        repo_id=repo_id,
+        ^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        free_memory=False,  # do not remove `CommitOperationAdd.path_or_fileobj` on LFS files for "normal" users
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\golin\OneDrive\Documents\MedAI Major Project\.venv\Lib\site-packages\huggingface_hub\hf_api.py", line 4700, in preupload_lfs_files
+    _fetch_upload_modes(
+    ~~~~~~~~~~~~~~~~~~~^
+        additions=additions_no_upload_mode,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        gitignore_content=gitignore_content,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\golin\OneDrive\Documents\MedAI Major Project\.venv\Lib\site-packages\huggingface_hub\utils\_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+  File "C:\Users\golin\OneDrive\Documents\MedAI Major Project\.venv\Lib\site-packages\huggingface_hub\_commit_api.py", line 755, in _fetch_upload_modes
+    hf_raise_for_status(resp)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\golin\OneDrive\Documents\MedAI Major Project\.venv\Lib\site-packages\huggingface_hub\utils\_http.py", line 847, in hf_raise_for_status
+    raise repo_err from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-69aed358-64044e9345a3a31e14419d16;514078d5-c067-41b2-a925-cd3ed2bead2c)
+
+Repository Not Found for url: https://huggingface.co/api/models/Nth1nGoli/medai-models/preupload/main.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated. For more details, see https://huggingface.co/docs/huggingface_hub/authentication
+Note: Creating a commit assumes that the repo already exists on the Huggingface Hub. Please use `create_repo` if it's not the case.

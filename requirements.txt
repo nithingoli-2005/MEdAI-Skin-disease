@@ -1,0 +1,10 @@
+flask
+flask-cors
+tensorflow
+numpy
+pillow
+scikit-learn
+matplotlib
+seaborn
+gunicorn
+huggingface_hub

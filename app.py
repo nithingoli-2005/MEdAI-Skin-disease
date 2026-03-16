@@ -9,7 +9,6 @@ import json
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.preprocessing import image
-from huggingface_hub import hf_hub_download
 from werkzeug.utils import secure_filename
 
 from tensorflow.keras.applications.resnet50 import preprocess_input as resnet_preprocess

@@ -106,10 +106,10 @@ def safe_load_model(path):
         raise e
 
 
-resnet = safe_load_model(MODEL_PATHS["resnet"])
-effb0 = safe_load_model(MODEL_PATHS["effb0"])
-effb3 = safe_load_model(MODEL_PATHS["effb3"])
-mobilenet = safe_load_model(MODEL_PATHS["mobilenet"])
+resnet = keras.models.load_model(MODEL_PATHS["resnet"], compile=False, safe_mode=False)
+effb0 = keras.models.load_model(MODEL_PATHS["effb0"], compile=False, safe_mode=False)
+effb3 = keras.models.load_model(MODEL_PATHS["effb3"], compile=False, safe_mode=False)
+mobilenet = keras.models.load_model(MODEL_PATHS["mobilenet"], compile=False, safe_mode=False)
 
 print("✅ All models loaded successfully")
 
